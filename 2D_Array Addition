@@ -1,0 +1,35 @@
+import java.util.*;
+public class Main{
+  public static void main(String [] agrs){
+    Scanner sd=new Scanner (System.in);
+    int n=sd.nextInt();
+    int m=sd.nextInt();
+    int arr[][]=new int [n][m];
+    for(int i=0;i<n;i++){
+      for(int j=0;j<m;j++){
+        arr[i][j]=sd.nextInt();
+        }
+      }
+    int n1=sd.nextInt();
+    int m1=sd.nextInt();
+    int arr1[][]=new int [n1][m1];
+    for(int i=0;i<n;i++){
+      for(int j=0;j<m;j++){
+        arr1[i][j]=sd.nextInt();
+      }
+    }
+    int total[][]=new int [n][m];
+    for(int i=0;i<n;i++){
+      for(int j=0;j<m;j++){
+        total[i][j]=arr[i][j]+arr1[i][j];
+        }
+      }
+      for (int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+          System.out.print(total[i][j]);
+          }
+        }
+        System.out.println();
+      }
+    }
+    
