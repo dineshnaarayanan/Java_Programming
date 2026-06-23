@@ -1,0 +1,32 @@
+// You are using Java
+import java.util.*;
+public class Main{
+    public static void main(String [] args){
+        Scanner sd=new Scanner (System.in);
+        String str=sd.nextLine();
+        String result="";
+        int count =1;
+        boolean found=false;
+        for(int i=0;i<str.length();i++){
+            if(i<str.length()-1 && str.charAt(i)==str.charAt(i+1)){
+                count++;
+                
+            }else{
+                result+=str.charAt(i);
+                if(count>1){
+                result+=count;
+                found=true;
+                }
+            
+            count =1;
+            }
+        }
+    if(found){
+        System.out.println(result);
+    }
+    else{
+        System.out.println(str);
+        System.out.println("no Consecutive");
+    }
+    }
+}
