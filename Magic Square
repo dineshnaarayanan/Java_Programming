@@ -1,0 +1,35 @@
+// You are using Java
+import java.util.*;
+public class Main{
+    public static void main(String []args){
+        Scanner sd=new Scanner (System.in);
+        int n=sd.nextInt();
+        int arr[][]=new int [n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr[i][j]=sd.nextInt();
+            }
+        }int di=0;int adi=0;
+        for(int i=0;i<n;i++){
+        int row=0;
+        int col=0;
+            for(int j=0;j<n;j++){
+               row+=arr[i][j];
+               col+=arr[j][i];
+            }
+            System.out.println("Sum of row "+(i+1)+": "+row);
+            System.out.println("Sum of column "+(i+1)+": "+col);
+        }
+        for(int i=0;i<n;i++){
+            di+=arr[i][i];
+            adi+=arr[i][n-1-i];
+        }
+        System.out.println("Sum of diagonal 1: "+di);
+        System.out.println("Sum of diagonal 2: "+adi);
+        if(di==adi){
+            System.out.println("The given "+n+"x"+n+" matrix is a magic square.");
+        }else{
+            System.out.println("The given "+n+"x"+n+" matrix is not a magic square.");
+        }
+    }
+}
