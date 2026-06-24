@@ -1,0 +1,12 @@
+// You are using Java
+import java.util.*;
+public class Main{
+    public static void main(String [] args){
+        Scanner sd=new Scanner (System.in);
+        String str=sd.nextLine();
+        String w=sd.nextLine();
+        String r=sd.nextLine();
+        String result=str.replace(w,r);
+        System.out.println(result);
+    }
+}
