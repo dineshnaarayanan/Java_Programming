@@ -1,0 +1,32 @@
+// You are using Java
+import java.util.*;
+public class Main{
+    public static void main(String [] args){
+        Scanner sd=new Scanner (System.in);
+        int r=sd.nextInt();
+        int c=sd.nextInt();
+        int arr[][]=new int [r][c];
+        for (int i=0;i<r;i++){
+            for(int j=0;j<c;j++){
+                arr[i][j]=sd.nextInt();
+            }
+        }int row=0;
+        int col=0;
+        for(int i=0;i<r;i++){
+            for(int j=0;j<c;j++){
+                if(i%2==0){
+                    row+=arr[i][j];
+                }else{
+                    col+=arr[i][j];
+                }
+            }
+        }
+        System.out.println(row*col);
+    }
+}/*multiple the sum of alternative rows
+input:                            output:
+3                                      450
+3
+1 2 3
+4 5 6
+7 8 9
