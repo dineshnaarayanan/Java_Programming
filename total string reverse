@@ -1,0 +1,12 @@
+import java.util.*;
+public class Main{
+  public static void main(String [] args){
+    Scanner sd=new Scanner (System.in);
+		String str=sd.nextLine();
+		String rev="";
+		StringBuilder rev=new StringBuilder(str);
+		rev.reverse();
+		System.out.println(rev);
+	}
+}
+    
