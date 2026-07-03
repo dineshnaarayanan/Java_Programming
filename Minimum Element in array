@@ -13,5 +13,6 @@ public class Main{
         min=arr[i];
     }
 }
+System.out.println(min);
 }
 }
