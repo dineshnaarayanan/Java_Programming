@@ -1,0 +1,39 @@
+// You are using Java
+import java.util.*;
+public class Main{
+    public static void main(String [] args){
+        Scanner sd=new Scanner(System.in);
+        int t=sd.nextInt();
+        while(t-->0){
+            int n=sd.nextInt();
+            int arr[]=new int[n];
+            for(int i=0;i<n;i++){
+                arr[i]=sd.nextInt();
+            }
+            int max=arr[1]-arr[0];
+            int index=2;
+            for(int i=2;i<n;i++){
+                int increase =arr[i]-arr[i-1];
+                if(increase>max){
+                    max=increase;
+                    index=i+1;
+                }
+            }
+            System.out.println(index);
+        }
+    }
+}
+Input 1 :                      Input 2 :
+2                                   1
+5                                    6 
+10 20 15 25 30                     10 12 14 10 15 20 
+4                                   Output 2 :                                      
+5 6 8 12                             5
+Output 1 :
+2
+4
+
+
+
+
+
