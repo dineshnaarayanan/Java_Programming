@@ -1,11 +1,22 @@
 import java.util.*;
-public class Main{
-  public static void main(String [] args){
-    Scanner sd=new Scanner(System.in);
-    int n=sd.nextInt();
-    int arr[]=new int [n];
-    for(int i=0;i<n;i++){
-      arr[i]=sd.nextInt();
+public class Main {
+    public static void main(String[] args) {
+        Scanner sd = new Scanner(System.in);
+        int n = sd.nextInt();
+        int arr[] = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sd.nextInt();
+        }
+        Arrays.sort(arr);
+        int i = 0;
+        while (i < n) {
+            int j = i;
+            // Move j until a different element is found
+            while (j < n && arr[j] == arr[i]) {
+                j++;
+            }
+            System.out.println(arr[i] + " -> " + (j - i));
+            i = j;
+        }
     }
-    int count=0;
-    Arrays.sort(arr);
+}
