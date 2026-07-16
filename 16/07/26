@@ -1,0 +1,297 @@
+Problem Statement
+
+
+
+Alex and Jordan are testing two different versions of a software application. Each version produces a list of bug identifiers representing the bugs detected during testing. Some bugs may appear in both versions, and some may appear multiple times.
+
+Your task is to analyze the bug reports from both versions and determine the most common bug type(s) across the combined reports.
+
+
+
+To do this:
+
+Merge the bug identifiers from both versions.
+Count the frequency of each bug type.
+Identify the bug type(s) that occur the maximum number of times.
+Print those bug type(s) in ascending order.
+
+
+Example
+
+Sample Input 1
+
+3
+
+101 102 103
+
+2
+
+102 103
+
+Sample Output 1
+
+102 103
+
+Explanation 
+
+After sorting and merging the bug reports from both versions, the list becomes: {101, 102, 102, 103, 103}.
+
+Now, analyze the frequency of each bug type in the merged list:
+
+Bug type '101' occurs once.
+
+Bug type '102' occurs twice.
+
+Bug type '103' occurs twice.
+
+Both bug types '102' and '103' are the most common, each occurring twice. Therefore, the output includes both of these bug types in ascending order: '102' followed by '103'. 
+
+Input format :
+The first line contains an integer L, representing the number of bug reports in the first version.
+
+The second line contains L space-separated integers, representing the bug identifiers from the first version.
+
+The third line contains an integer M, representing the number of bug reports in the second version.
+
+The fourth line contains M space-separated integers, representing the bug identifiers from the second version.
+
+Output format :
+Print the bug identifier(s) that occur most frequently in the combined list.
+
+If multiple bug types share the same highest frequency, print all of them in ascending order, separated by a space.
+
+
+
+Refer to the sample output for formatting specifications.
+
+Code constraints :
+1 ≤ L, M ≤ 7
+
+101 ≤ bug type ≤ 810
+
+At least one hidden test case will include bug identifiers from the minimum (101) and maximum (810) ends of the range.
+
+
+
+Time Complexity
+
+O(L+M+N)
+
+Where:
+
+L = number of bugs in the first version
+M = number of bugs in the second version
+N = range of possible bug identifiers
+Sample test cases :
+Input 1 :
+3
+101 102 103
+2
+102 103
+Output 1 :
+102 103 
+Input 2 :
+2
+201 202
+5
+201 202 202 203 204
+Output 2 :
+202 
+Input 3 :
+5
+501 502 503 503 503
+5
+501 502 503 505 506
+Output 3 :
+503 
+Expected Time Complexity : O(M * N)
+Expected Space Complexity : O(c^N)
+
+
+
+
+
+Problem Statement
+
+
+
+A deep-space logistics fleet travels in a strict single-file convoy formation, where each spacecraft is assigned a unique identification number based on its position in the convoy line.
+
+
+
+Due to a shifting priority protocol issued by mission control, the entire convoy formation must be rotated to the right by a given number of positions. When a rotation occurs, the spacecraft at the rear of the convoy moves to the front, pushing all other spacecraft back by one position. 
+
+
+
+This shifting process is repeated for the specified number of rotations to determine the final convoy formation order.
+
+
+
+Example:
+
+Convoy = [47, 56, 95, 24, 38]
+
+Rotations = 3
+
+
+
+Execution:
+
+[47, 56, 95, 24, 38]
+
+↓
+
+[38, 47, 56, 95, 24]
+
+↓
+
+[24, 38, 47, 56, 95]
+
+↓
+
+[95, 24, 38, 47, 56]
+
+
+
+Output:
+
+95 24 38 47 56
+
+
+
+Write a program that takes the convoy formation as an array of spacecraft identification numbers along with the number of rotations, and determines the final convoy formation after all rotations are completed.
+
+Input format :
+The first line of input consists of an integer N, representing the number of spacecraft in the convoy.
+
+The second line consists of N space-separated integers, representing the spacecraft identification numbers.
+
+The third line consists of an integer M, representing the number of positions the convoy must be rotated to the right.
+
+Output format :
+The output prints the final convoy formation after rotating the array M positions to the right, with the identification numbers separated by a space.
+
+
+
+Refer to the sample output for formatting specifications.
+
+Code constraints :
+1 ≤ N ≤ 10
+
+1 ≤ elements ≤ 100
+
+1 ≤ M < N
+
+Sample test cases :
+Input 1 :
+5
+47 56 95 24 38
+3
+Output 1 :
+95 24 38 47 56 
+Input 2 :
+8
+1 2 3 4 5 6 7 8
+6
+Output 2 :
+3 4 5 6 7 8 1 2 
+
+
+// You are using Java
+import java.util.*;
+public class Main{
+    public static void main(String [] args){
+        Scanner sd=new Scanner (System.in);
+        int n=sd.nextInt();
+        int arr[]=new int [n];
+        for(int i=0;i<n;i++){
+            arr[i]=sd.nextInt();
+        }
+        int k=sd.nextInt();
+        int temp[]=new int [n];
+        for(int i=0;i<n;i++){
+            temp[i]=arr[(i-k+n)%n];
+        }
+        for(int i=0;i<temp.length;i++){
+            System.out.print(temp[i]+" ");
+        }
+    }
+}
+
+
+
+
+
+Problem Statement
+
+
+
+Reshma is a librarian who wants to organize the book titles in the library's inventory in alphabetical order. Each book title is a string containing only alphabetical characters. She needs a program that will read the book titles, sort them alphabetically, and then display the sorted list.
+
+
+
+Write a program that reads n book titles, sorts them in alphabetical order, and prints the sorted list.
+
+Input format :
+The first line contains an integer n, the number of book titles.
+
+The next n lines each contain one book title, which is a string of alphabetical characters.
+
+Output format :
+The output displays a string, representing each containing one book title in alphabetical order, separated by a line.
+
+
+
+Refer to the sample output for the formatting specifications.
+
+Code constraints :
+1 ≤ n ≤ 10
+
+length of each string ≤ 100
+
+Sample test cases :
+Input 1 :
+5
+David
+Bob
+Charles
+Alice
+Ester
+Output 1 :
+Alice
+Bob
+Charles
+David
+Ester
+Input 2 :
+4
+Damon
+Stefan
+Elena
+Bonnie
+Output 2 :
+Bonnie
+Damon
+Elena
+Stefan
+
+
+// You are using Java
+import java.util.*;
+public class Main{
+    public static void main(String [] args){
+        Scanner sd=new Scanner(System.in);
+        int n=sd.nextInt();
+        sd.nextLine();
+        String arr[]=new String [n];
+        for(int i=0;i<n;i++){
+            arr[i]=sd.nextLine();
+        }
+        Arrays.sort(arr);
+        for(int i=0;i<n;i++){
+            System.out.println(arr[i]);
+        }
+        System.out.println();
+    }
+}
+
