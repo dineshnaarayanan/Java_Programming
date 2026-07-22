@@ -1,0 +1,165 @@
+JUST TRIED BUT NOT CRT PROGRAM
+
+Problem Statement
+
+
+
+You are given an array of integers. For each element, you need to transform it using specific rules and then count how many times each resulting number appears. Finally, you need to find the element with the highest frequency, and if multiple elements have the same frequency, you pick the smallest element. If the number is negative, take its absolute value.
+
+Then, based on whether it’s even or odd:
+
+Even numbers → sum its digits repeatedly until a single digit is obtained.
+
+Odd numbers → sum its digits repeatedly until a single digit is obtained → square this result → sum its digits repeatedly until a single digit is obtained.
+
+The final result after applying these steps is the transformed number in the array.
+
+Exmaple1:
+
+Input:
+
+8
+
+1 2 8 4 6 1 2 1
+
+Transformation:
+
+1 → odd → sum of digits = 1 → square = 1² = 1
+
+2 → even → sum of digits = 2 → single digit = 2
+
+8 → even → sum of digits = 8 → single digit = 8
+
+4 → even → sum of digits = 4 → single digit = 4
+
+6 → even → sum of digits = 6 → single digit = 6
+
+1 → odd → 1 → 1
+
+2 → even → 2 → 2
+
+1 → odd → 1 → 1
+
+Transformed Array:
+
+1 2 8 4 6 1 2 1
+
+Frequencies:
+
+1 → 3 times
+
+2 → 2 times
+
+8 → 1 time
+
+4 → 1 time
+
+6 → 1 time
+
+Highest frequency = 1 (appears 3 times)
+
+Output:
+
+Element with maximum frequency: 1
+
+
+
+Example2:
+
+Input:
+
+6
+
+123 44 -67 502 31 88
+
+Transformation:
+
+123 → odd → sum of digits = 6 → square = 6² = 36 = 3+6 =9 single digit = 9 stop
+
+44 → even → sum of digits = 8 → single digit = 8
+
+-67 → negative→abs(-67)→67 odd →  sum of digits = 13→1+3=4 ->single digit = 4= square of 4= 16  -> 1+6 =7-> single digit =7 stop
+
+502 → even → sum of digits = 7 → single digit = 7 stop
+
+31→ odd → sum of digits = 4 →square of 4 = 16 = 1+6=7 single digit = 7 stop
+
+88 → even → sum of digits = 16 → 1+6=7 single digit = 7 stop
+
+Transformed Array:
+
+9 8 7 7 7 7
+
+Frequencies:
+
+9 → 1 times
+
+8 → 1 times
+
+7 → 4 times
+
+Highest frequency = 7 (appears 4 times)
+
+Output:
+
+Element with maximum frequency: 7
+
+Input format :
+The first line contains an integer n, the number of elements in the array.
+
+The second line contains n integers (positive or negative), separated by spaces, representing the elements of the array.
+
+Output format :
+Element with maximum frequency: <element>
+
+
+
+Refer to the sample output for formatting specifications.
+
+Code constraints :
+1 ≤ n ≤ 50
+
+-10⁵ ≤ element ≤ 10⁵
+
+Sample test cases :
+Input 1 :
+8
+1 2 8 4 6 1 2 1
+Output 1 :
+Element with maximum frequency: 1
+Input 2 :
+5
+-22 13 40 31 -13
+Output 2 :
+Element with maximum frequency: 7
+
+
+// You are using Java
+import java.util.*;
+public class Main{
+    public static void main(String [] args){
+        Scanner sd=new Scanner (System.in);
+        int n=sd.nextInt();
+        int arr[]=new int [n];
+        for(int i=0;i<n;i++){
+            arr[i]=sd.nextInt();
+        }
+        Arrays.sort(arr);
+        int sum=0;
+        for(int i=0;i<n;i++){
+            if(arr[i]%2==0){
+               int temp=arr[i]%10;
+               arr[i]=arr[i]/10;
+               sum=arr[i]+temp;
+               System.out.println(sum);
+            }else if(arr[i]%2!=0){
+                int temp=arr[i]%10;
+                arr[i]=arr[i]/10;
+                sum=arr[i]+temp;
+                sum=Math.pow(sum,2);
+                System.out.println(sum);
+                }
+               
+        }
+    }
+}
