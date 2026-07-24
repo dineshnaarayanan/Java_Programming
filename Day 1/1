@@ -1,0 +1,32 @@
+Problem 1
+
+Print all elements.
+
+Example
+
+Input
+
+5
+10 20 30 40 50
+
+Output
+
+10 20 30 40 50
+
+
+
+import java.util.*;
+public class Main{
+ public Static void main(String [] args){
+ Scanner sd=new Scanner (System.in);
+ int n=sd.nextInt();
+ int arr[]=new int [n];
+ for(int i=0;i<n;i++){
+ arr[i]=sd.nextInt();
+ }
+ for(int i=0;i<n;i++){
+ System.out.print(arr[i]);
+ }
+ System.out.println();
+ }
+ }
