@@ -1,0 +1,27 @@
+From your examples, you want to find the number of distinct characters in the string.
+
+Input: "aaab"
+Distinct characters = {a, b}
+Count = 2
+Input: "aaabacdbacd"
+Distinct characters = {a, b, c, d}
+Count = 4
+
+
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        String str = "aaabacdbacd";
+
+        HashSet<Character> set = new HashSet<>();
+
+        for (char ch : str.toCharArray()) {
+            set.add(ch);
+        }
+
+        System.out.println("Unique characters: " + set);
+        System.out.println("Count: " + set.size());
+    }
+}
